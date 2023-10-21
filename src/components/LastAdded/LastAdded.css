@@ -1,0 +1,18 @@
+.last-added-item-container {
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.last-added-item{
+    margin-top: 15px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+.last-added-title{
+    text-align: center;
+}
+.last-added-author{
+    text-align: center;
+}

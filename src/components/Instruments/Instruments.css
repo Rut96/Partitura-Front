@@ -1,0 +1,14 @@
+.home-page-instruments{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+    grid-column: 2 / span 5;
+}
+
+.instrument{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 250px;
+    border: 1px solid black;
+    width: 250px;
+}

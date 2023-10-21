@@ -1,0 +1,23 @@
+.content-container {
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap
+}
+
+.content-item{
+    width: 300px;
+    border: 1px solid black;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+.content-title{
+    text-align: center;
+}
+
+.content-author{
+    text-align: center;
+}

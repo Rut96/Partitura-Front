@@ -1,0 +1,67 @@
+/* src/App.css */
+.chord-sheet {
+    /* border: 1px solid #ccc; */
+    padding: 10px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    width: 400px;
+
+    font-family: "Roboto Mono", "Courier New", monospace;
+}
+.transponse{
+    margin-top: 140px;   
+}
+
+.song-area{
+    grid-area: song;
+}
+
+.chords-area{
+    grid-area: chord;
+}
+
+.video-area{
+    grid-area: video;
+    border: 1px solid red;
+}
+
+.content-area{
+    grid-area: content;
+}
+
+.songContainer{
+    margin-top: 100px; 
+    margin-bottom: 100px;
+    display: grid;
+    gap: 10px;
+    /* background-color: #2196F3; */
+    padding: 10px;
+    grid-template-areas:
+    'song song song song chord chord'
+    'song song song song video video'
+    'song song song song video video'
+    'song song song song video video'
+    'song song song song video video'
+    'song song song song content content'
+    'song song song song content content'
+    'song song song song content content'
+    'song song song song content content'
+    'song song song song content content'
+    'song song song song content content'
+}
+.transposeBtn{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 300px;
+}
+.chord-item {
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 5%;
+}
+.chords-component{
+    display: flex;
+}

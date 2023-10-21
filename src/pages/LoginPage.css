@@ -1,0 +1,109 @@
+/* Login Page Container */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to left, rgb(169, 111, 246), white);
+  
+}
+
+/* Login Form */
+.login-form {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+/* Login Form */
+.login-buttons {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Form Fields */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 93%;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* Submit Button */
+.login-form button[type="submit"] {
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Submit Button Hover Effect */
+.login-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Google Login Button */
+.google-login-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #db4a39;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Google Login Button Hover Effect */
+.google-login-button:hover {
+  background-color: #b23e32;
+}
+
+.facebook-login-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3967db;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+
+.facebook-login-button:hover {
+  background-color: #2063a5;
+}
+
+.sign-up-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6fa773;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Google Login Button Hover Effect */
+.sign-up-button:hover {
+  background-color: #2f8443;
+}
