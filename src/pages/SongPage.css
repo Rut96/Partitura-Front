@@ -24,7 +24,8 @@
 
 .video-area{
     grid-area: video;
-    border: 1px solid red;
+    height: 100%;
+    width: 100%;
 }
 
 .content-area{
@@ -43,7 +44,7 @@
     'song song song song video video'
     'song song song song video video'
     'song song song song video video'
-    'song song song song video video'
+    'song song song song content content'
     'song song song song content content'
     'song song song song content content'
     'song song song song content content'

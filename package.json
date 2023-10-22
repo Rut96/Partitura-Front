@@ -13,6 +13,7 @@
     "chordsheetjs": "^6.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-player": "^2.13.0",
     "react-router": "^5",
     "react-router-dom": "^5",
     "react-scripts": "^5.0.1",

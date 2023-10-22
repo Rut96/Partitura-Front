@@ -3,6 +3,8 @@ import React, { useRef } from 'react';
 import axios from 'axios';
 import ChordSheetJS from 'chordsheetjs';
 
+import './Song.css';
+
 // const containerRef = useRef(null);
 
 export default class SongPage extends React.Component {
@@ -20,6 +22,8 @@ export default class SongPage extends React.Component {
     const parser = new ChordSheetJS.UltimateGuitarParser();
     const song = parser.parse(this.props.lyrics.substring(1))
     const formatter = new ChordSheetJS.HtmlTableFormatter()
+    const formatter2 = new ChordSheetJS.HtmlDivFormatter()
+    const disp2 = formatter2.format(song)
     const disp = formatter.format(song)
     return(
       <div>

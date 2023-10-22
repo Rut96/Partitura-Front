@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
+import AuthorPage from './pages/AuthorPage';
 // import { Router } from 'react-router-dom/cjs/react-router-dom';
 
 import Header from './components/Header/Header';
@@ -27,6 +28,7 @@ function App() {
         <Route path="/song" exact component={SongPage} />
         <Route path="/signup" exact component={SignUp} />
         <Route path="/" exact component={HomePage} />
+        <Route path="/author" exac component={AuthorPage} />
         {/* <Route path="/invoices" component={InvoicesPage} /> */}
       {/* </Switch> */}
         <Footer className='footer'/>
