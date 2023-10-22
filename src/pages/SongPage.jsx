@@ -7,7 +7,7 @@ import './SongPage.css'
 import Song from '../components/Song/Song';
 
 import ChordComponent from '../components/Chords/Chords';
-
+import ReactPlayer from 'react-player'
 // const containerRef = useRef(null);
 
 export default class SongPage extends React.Component {
@@ -25,7 +25,8 @@ export default class SongPage extends React.Component {
       title: '',
       amount: 0,
       lyricsOld: '',
-      authorData: ''
+      authorData: '',
+      songVideo: ''
     }
   }
 
@@ -112,7 +113,7 @@ export default class SongPage extends React.Component {
   componentDidMount(){
     axios.get(`/songs/${this.state.id}`).then((res)=>{
       console.log(res)
-      let { author, chords, dateAdded, genre, image, lyrics, title } = res.data;
+      let { author, chords, dateAdded, genre, image, lyrics, title, songVideo } = res.data;
       lyrics = this.transposeChordSheet( lyrics , 0 );
       this.setState({
         author,
@@ -123,7 +124,8 @@ export default class SongPage extends React.Component {
         lyrics,
         title,
         amount: 0,
-        lyricsOld: lyrics
+        lyricsOld: lyrics,
+        songVideo
       });
       //authors
       axios.get(`/authors/${this.state.author}`).then((res)=>{
@@ -154,8 +156,14 @@ export default class SongPage extends React.Component {
     })
   }
 
+  goToAuthor(author){
+    console.log(author);
+    this.props.history.push('/author', { author});
+    this.props.history.go('/author', { author });
+  }
+
   render(){
-    console.log(this.state)
+    console.log(this.props)
     if(this.state.lyrics.length> 0){
       const chords = this.extractChordsFromChordSheet(this.state.lyrics);
       console.log(chords);
@@ -193,11 +201,16 @@ export default class SongPage extends React.Component {
           </div>
           </div>
 
-          <div className='video-area'>
-
-          </div>
+          {/* <div className='video-area'> */}
+            
+              <ReactPlayer url={this.state.songVideo}  className='video-area'/> 
+           
+          {/* </div> */}
           <div className='content-area'>
-
+            <a href="http://" onClick={(e)=>{
+              e.preventDefault()
+              this.goToAuthor(this.state.author);
+            }}>Go to author</a>
           </div>
         </div>
       )
