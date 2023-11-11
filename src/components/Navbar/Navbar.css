@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* background-color: rgb(177, 206, 231); */
+}
+
+li, a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(207, 217, 229);
+}
+
+.logo {
+    cursor: pointer;
+    padding: 10px;
+    margin-right: auto;
+    margin-bottom: 15px;
+    height: 80px;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding:  0px 20px;
+}
+
+.nav-links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav-links li a:hover {
+    color: rgb(126, 102, 207);
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.search input[type="text"]
+{
+	outline: 0;
+    border: 1px solid #1f1b62;
+	overflow: auto;
+	border-radius: 20px;
+    padding: 10px;
+	background: none;
+	background-color: #ffffff;
+	color: #000000;
+    border-top-right-radius: 0px;
+	-moz-border-radius-top-right: 0px;
+	-webkit-border-radius-top-right: 0px;
+	border-bottom-right-radius: 0px;
+	-moz-border-radius-bottom-right: 0px;
+	-webkit-border-radius-bottom-right: 0px;
+}
+
+.search input[type="submit"]
+{
+	border: 1px solid #1f1b62;
+	overflow: auto;
+	border-radius: 20px;
+    padding: 10px;
+	background: none;
+	background-color: #3a2d9d;
+	color: #fff;
+	float: right;
+	border-top-left-radius: 0px;
+	-moz-border-radius-top-left: 0px;
+	-webkit-border-radius-top-left: 0px;
+	border-bottom-left-radius: 0px;
+	-moz-border-radius-bottom-left: 0px;
+	-webkit-border-radius-bottom-left: 0px;
+    cursor:pointer;
+}
+
+.search input[type="submit"]:hover {
+    background-color: #8ca9f1;
+    color: black;
+}
+
+.log-in {
+  margin-right: 10px;
+  width:150px;
+  height:45px;
+  border-radius:45px;
+  cursor:pointer;
+  border:none;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:bold;
+  box-shadow:0px 8px 15px rgba(0,0,0,0.1);
+  transition:all 0.3s ease;
+}
+
+.log-in:hover {
+  background:#8ca9f1;
+  transform:translateY(-7px);
+  color:#fff;
+  box-shadow:0px 10px 25px rgba(67, 135, 229, 0.445);
+}
+
+

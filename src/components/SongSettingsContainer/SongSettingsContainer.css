@@ -1,0 +1,6 @@
+.settings-container { 
+    grid-area: 2 / 2 / 3 / 6;
+    border: 1px solid black;
+    display: flex;
+}
+

@@ -1,14 +1,49 @@
-.home-page-instruments{
-    display: flex;
-    justify-content: space-around;
-    border: 1px solid black;
-    grid-column: 2 / span 5;
+/* music container -------------------------------------------------------------------------------------------------------------------------------- */
+.music-container {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". guitar . piano . ukulele ."; 
+    background-color: #dee2ff;
+    background-image: linear-gradient(0deg, #dee2ff 0%, #B5FFFC 50%, #ffffff 100%);
+
+
 }
 
-.instrument{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    height: 250px;
+.guitar { grid-area: 1 / 2 / 2 / 3 ; }
+.piano { grid-area: 1 / 4 / 2 / 5 ; }
+.ukulele { grid-area: 1 / 6 / 2 / 7 ; }
+
+.music-item {
+    padding: 5px;
+    margin: 70px;
+    width: 350px;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 300ms;
     border: 1px solid black;
-    width: 250px;
 }
+
+.music-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.music-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.ukulele img{   
+    width: 230px;
+    height: 90%;
+    object-fit: cover;
+    margin-left: 50px;
+}
+/* ends ------------------------------------------------------------------------------------------------------------------------------------------ */

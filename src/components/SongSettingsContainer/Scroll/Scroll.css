@@ -1,0 +1,92 @@
+/* scroll ----------------------------------------------------------------------------------------- */
+.scroll { 
+    display: block;
+    width: 25%;
+    height: 100%;
+}
+.scroll-arrow-down {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    border: 1px solid #666;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 1.5);
+    overflow: hidden;
+    margin-left: 42%;
+    top: 30px;
+}
+.scroll-arrow-down .arrow-slide {
+    left: 0;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    background: #666;
+    position: absolute;
+    display: block;
+    z-index: 0;
+}
+.scroll-arrow-down .left-arm {
+    position: absolute;
+    z-index: 1;
+    background-color: transparent;
+    top: 19px;
+    left: 3px;
+    width: 20px;
+    display: block;
+    transform: rotate(45deg);
+}
+.scroll-arrow-down .left-arm:after {
+    content: "";
+    background-color: #666;
+    width: 20px;
+    height: 1px;
+    display: block;
+    border-radius: 1px;
+    transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 1.5);
+    transform-origin: right center;
+    z-index: -1;
+}
+.scroll-arrow-down .right-arm {
+    position: absolute;
+    z-index: 1;
+    background-color: transparent;
+    top: 19px;
+    left: 17px;
+    width: 20px;
+    display: block;
+    transform: rotate(-45deg);
+    border-radius: 2px;
+}
+.scroll-arrow-down .right-arm:after {
+    content: "";
+    background-color: #666;
+    width: 20px;
+    height: 1px;
+    display: block;
+    border-radius: 1px;
+    transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 1.5);
+    transform-origin: left center;
+    z-index: -1;
+}
+.scroll-arrow-down:hover {
+    transition: all 0.1s;
+}
+.scroll-arrow-down:hover .left-arm:after {
+    transform: rotate(-10deg);
+}
+.scroll-arrow-down:hover .right-arm:after {
+    transform: rotate(10deg);
+}
+.scroll-arrow-down:hover .arrow-slide {
+    transition: all 0.4s ease-in-out;
+    transform: translateY(200%);
+}
+.scroll h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500px;
+    font-size: 30px;
+}
+/* scroll ends -------------------------------------------------------------------------------------- */

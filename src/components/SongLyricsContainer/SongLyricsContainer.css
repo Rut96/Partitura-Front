@@ -1,0 +1,6 @@
+.song { 
+    grid-area: 4 / 4 / 7 / 6; 
+    font-family: math;
+    /* font-size: 24px; */
+    margin-left: 10px;
+    }

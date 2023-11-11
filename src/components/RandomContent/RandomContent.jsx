@@ -6,7 +6,7 @@ import { SongModal } from '../SongModal/SongModal'
 export default class RandomContent extends React.Component { 
   constructor(props) { 
     super(props);
-    // console.log(props)
+    //// console.log(props)
     this.state = {
       contentItems: []
     }
@@ -14,7 +14,7 @@ export default class RandomContent extends React.Component {
 
   componentDidMount(){
     axios.get('/songs').then(res=>{
-      // console.log(res.data);
+      //// console.log(res.data);
       this.setState({
         contentItems: res.data
       })
@@ -41,25 +41,49 @@ export default class RandomContent extends React.Component {
   return array;
 }
 
+handleFavoriteClick(item){
+  // alert('add to favorite')
+ // console.log(item);
+  let body = item
+  axios.post('/user/favorites', body).then((res)=>{
+   // console.log(res);
+    alert('add song to favorite')
+  })
+}
+
   render() {
     const content = this.shuffle(this.state.contentItems);
-    
+    console.log(this.props)
     return (
       <div className="content-container">
         {
-          content.map(({image, title, dateAdded, author, type, _id}) => { 
-            // console.log(_id)
+  
+          content.map((item, index) => { 
+            let {image, title, dateAdded, author, genre, _id} = item;
+           // console.log(this.props)
             return(
-              <SongModal 
+              <div key={index}>
+              {/* Display your song details */}
+              <SongModal
                 key={_id}
                 _id={_id}
-                image={image} 
-                title={title} 
+                image={image}
+                title={title}
                 dateAdded={dateAdded}
                 author={author}
-                type={type}
+                genre={genre}
                 history={this.props.history}
-            />
+                instrument={this.props.instrument}
+              />
+        
+              {/* Favorite icon */}
+              
+              {
+                this.props.isLogin ? <div onClick={()=>this.handleFavoriteClick(item)} style={{ cursor: 'pointer' }}>
+                '❤️' 
+              </div> : null
+              }
+            </div>
             )
           })
         }

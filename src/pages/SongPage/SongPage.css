@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+.main-songPage-container {  
+    display: grid;
+    grid-template-columns: 1fr 38% 1fr 1fr 1fr;
+    grid-template-rows: 350px 180px 1fr 1fr 1fr 1fr 1fr;
+    
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    border: 1px solid black;
+    background-color: #dee2ff;
+    background-image: linear-gradient(0deg, #dee2ff 0%, #B5FFFC 50%, #ffffff 100%);
+ 
+  }
+
+  .instruments{
+    grid-area: 1 / 2 / 2 / 6;
+    border: 1px solid black;
+    display: flex;
+  }
+  
+  .other-songs-container { 
+    grid-area: 1 / 1 / 7 / 2; 
+    border: 1px solid black;
+  }
+  
+  .chords-container { 
+    grid-area: 3 / 3 / 3 / 6;
+    border: 1px solid black;
+    height: 350px;
+}
+  
+  
+  .youtube { grid-area: 4 / 2 / 7 / 4; }
+  
+  
+  /* .song { 
+    grid-area: 3 / 4 / 7 / 6; 
+    font-family: math;
+    font-size: 24px;
+    margin-left: 10px;
+    } */
+  
+
+/* song card style -------------------------------------------------------------------------------------------------- */
+  .card {
+    width: 300px;
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+.card img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    transition: opacity 0.2s ease-out;
+}
+.card h2 {
+    position: absolute;
+    inset: auto auto 30px 30px;
+    margin: 0;
+    transition: inset 0.3s 0.3s ease-out;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: black;
+}
+.card p {
+    position: absolute;
+    opacity: 0;
+    max-width: 80%;
+    transition: opacity 0.3s ease-out;
+    inset: auto auto 40px 30px;
+    color: black;
+}
+
+.card:hover h2 {
+    inset: auto auto 70px 30px;
+    transition: inset 0.3s ease-out;
+}
+.card:hover p {
+    opacity: 1;
+    transition: opacity 0.5s 0.1s ease-in;
+}
+.card:hover img {
+    transition: opacity 0.3s ease-in;
+    opacity: 1;
+}
+/* song card style ends ------------------------------------------------------------------------------------------------------------------------ */
+
+
+/* settings style -------------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+.youtube {
+    border: 1px solid black;
+}
+

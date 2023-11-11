@@ -1,18 +1,17 @@
 import './App.css';
 import { Route } from "react-router-dom";
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import ProfilePage from './pages/ProfilePage';
-import AuthorPage from './pages/AuthorPage';
-// import { Router } from 'react-router-dom/cjs/react-router-dom';
+import HomePage from './pages/HomePage/HomePage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
+import AuthorPage from './pages/AuthorPage/AuthorPage';
 
-import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import SongPage from './pages/SongPage';
+import SongPage from './pages/SongPage/SongPage';
+import Navbar  from './components/Navbar/Navbar';
 
-import SignUp from './pages/SignupPage';
+import SignUp from './pages/SignUpPage/SignUpPage';
 
-// import { BrowserRouter as Switch } from 'react-router-dom';
+
 
 
 function App() {
@@ -20,17 +19,13 @@ function App() {
   
   return (
     <div>
-      <Header />
-      {/* <Switch> */}
-
+      <Navbar />
+        <Route path="/signup" exact component={SignUp} />
         <Route path="/login" exac component={LoginPage} />
         <Route path="/profile" exac component={ProfilePage} />
         <Route path="/song" exact component={SongPage} />
-        <Route path="/signup" exact component={SignUp} />
         <Route path="/" exact component={HomePage} />
         <Route path="/author" exac component={AuthorPage} />
-        {/* <Route path="/invoices" component={InvoicesPage} /> */}
-      {/* </Switch> */}
         <Footer className='footer'/>
     </div>
   );

@@ -1,0 +1,197 @@
+html, body, #root {
+    height: 100%;
+    background-color: #dee2ff;
+    background-image: linear-gradient(0deg, #dee2ff 0%, #B5FFFC 50%, #ffffff 100%);
+}
+
+#root > div {
+    height: 100%;
+}
+.personal-container {
+    height: 100%;
+    /* display: grid;  */
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "personal-info personal-info"
+    "personal-settings personal-settings"; 
+}
+
+.personal-info { grid-area: 1 / 1 / 2 / 3; }
+
+.personal-info{
+    height: 300px;
+    display: grid; 
+    grid-template-columns:  0.4fr 1.6fr;; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "pers-img pers-img";
+    padding: 4rem 8rem;
+
+    border: 3px solid #333;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+    position: relative;
+}
+
+.personal-info::before {
+    content: '';
+    border: 2px solid #353535;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
+    border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
+}
+
+.pers-img img{
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    padding: 5px;
+    height: 200px;
+    width: 200px;
+}   
+
+.pers-img img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.pers-info {
+    color: #fcdde8;
+    font-size: 50px;
+    font-weight: 300;
+    text-shadow:
+    -0.0075em 0.0075em 0 #fef2f6, 
+    0.005em 0.005em 0 #a5abf6, 
+    0.01em 0.01em 0 #aeaaf7, 
+    0.015em 0.015em #b4aef7, 
+    0.02em 0.02em 0 #b5b3f8, 
+    0.025em 0.025em 0 #bbb7f8, 
+    0.03em 0.03em 0 #c5bcf8, 
+    0.035em 0.035em 0 #c0ccf9;
+}
+
+
+.link a {
+    color: #fcdde8;
+    font-size: 40px;
+    font-weight: 200;
+}
+
+/* .link a::before {
+    background: hsl(45 100% 70%);
+	content: "";
+	inset: 0;
+	position: absolute;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.5s ease-in-out;
+	z-index: -1;
+}
+
+.link a:hover::before {
+    transform: scaleX(1);
+	transform-origin: left;
+} */
+
+
+.personal-settings {  
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". .";
+}
+
+.settings {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+    margin: 20px;
+    /* margin-left: 20px; */
+}
+
+.favoriteWrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.card {
+    width: 300px;
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+.card img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    transition: opacity 0.2s ease-out;
+}
+.card h2 {
+    position: absolute;
+    inset: auto auto 30px 30px;
+    margin: 0;
+    transition: inset 0.3s 0.3s ease-out;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: black;
+}
+.card p {
+    position: absolute;
+    opacity: 0;
+    max-width: 80%;
+    transition: opacity 0.3s ease-out;
+    inset: auto auto 40px 30px;
+    color: black;
+}
+
+.card:hover h2 {
+    inset: auto auto 70px 30px;
+    transition: inset 0.3s ease-out;
+}
+.card:hover p {
+    opacity: 1;
+    transition: opacity 0.5s 0.1s ease-in;
+}
+.card:hover img {
+    transition: opacity 0.3s ease-in;
+    opacity: 1;
+}
+
+
+.card {
+    position: relative;
+  }
+  
+  .delete-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+  }
+  
+  .card:hover .delete-icon {
+    visibility: visible;
+    opacity: 1;
+  }

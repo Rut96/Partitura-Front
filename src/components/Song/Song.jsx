@@ -1,11 +1,9 @@
-// src/components/SongPage.js
-import React, { useRef } from 'react';
-import axios from 'axios';
+
+import React from 'react';
 import ChordSheetJS from 'chordsheetjs';
 
 import './Song.css';
 
-// const containerRef = useRef(null);
 
 export default class SongPage extends React.Component {
   constructor(props){
