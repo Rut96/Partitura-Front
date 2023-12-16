@@ -2,40 +2,35 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './LoginPage.css';
 
+import CustomLink from '../../components/CustomLink/CustomLink';
+
 function LoginPage(props) {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null); 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = (e) => {
     try {
-      let res = await axios.post('/login', { username, password });
-
-      if (res.status === 302) {
-       // console.log('redirect')
-        // Handle success action here
-        // Redirect or set state as needed
-      } else if (res.status === 401) {
-        // Authentication failure, set error message
-        setErrorMessage('Username or password is incorrect.');
-      }
-
-     // console.log(props);
-      props.history.push('/profile', { user: res.data });
-      props.history.go('/profile', { user: res.data });
+      e.preventDefault();
+      axios({
+        method: 'POST',
+        url: '/auth/loginLocal',
+        data: { username: email, password }
+      }).then((res)=>{
+        if(res.status===200){
+          props.history.push('/profile');
+          props.history.go('/profile');
+        }
+      })
     } catch (err) {
-     // console.log(err);
-      
-      if(err.response.status===401){
-        setErrorMessage('Username or password is incorrect.');
-      }
+      setErrorMessage('Username or password is incorrect.');
     }
   }
 
   const handleLoginWithGoogle = () => {
     window.location.href = 'http://localhost:3030/auth/google';
   }
+
   const handleLoginWithFacebook = () => {
     window.location.href = 'http://localhost:3030/auth/facebook';
   }
@@ -44,24 +39,27 @@ function LoginPage(props) {
     <div className="container">
       <div className="top"></div>
       <div className="bottom"></div>
-      <div className="center">
+      <form className="center">
+
         <h2>Login</h2>
-        <input type="username" placeholder="username" onChange={(e) => setUsername(e.target.value)} />
+        <input type="email" placeholder="email" onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} />
         
         {errorMessage ? <div className="error-message">{errorMessage}</div>: null}
         
-        <button className="google-auth" onClick={handleLoginWithGoogle}>Google</button>
-        <button className="facebook-auth" onClick={handleLoginWithFacebook}>Facebook</button>
+        <div className="google-auth" onClick={handleLoginWithGoogle}>Google</div>
+        <div className="facebook-auth" onClick={handleLoginWithFacebook}>Facebook</div>
 
         <div className="links">
-          <a href="#">Forgot Password</a>
-          <a href="/signup">Signup</a>
+          <CustomLink to={'/forgot'} text='Forgot Password' history={props.history}/>
+          <CustomLink to={'/signup'} text='Signup' history={props.history}/>
         </div>
+
         <div className="inputBox">
-          <input type="submit" value="Login" onClick={handleSubmit} />
+          <input type="submit" value="Login" onClick={(e)=>handleSubmit(e)} />
         </div>
-      </div>
+
+      </form>
     </div>
   );
 }

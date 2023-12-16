@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.settings-menu{
+    box-sizing: border-box;
+    /* width: 50%; */
+    border: solid #5B6DCD 10px;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+}
+
+.inp{
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-family: "Montserrat", sans-serif;
+}
+
+.settings-menu button{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-family: "Montserrat", sans-serif;
+    background: #60b8d4;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+
+.settings-menu button:hover{
+    background: #5B6DCD;
+    font-size: 20px;
+}
+

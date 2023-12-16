@@ -9,7 +9,7 @@ const SongCard = (props) => {
        props.history.go('/song', { _id: props._id, instrument: 'guitar' } );
   };
 
-  console.log(props);
+  // console.log(props);
   return (
 
     <div className="card i1" onClick={handleClick}>

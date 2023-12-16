@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.contact-form{
+	max-width: 400px;
+	margin: 10px auto;
+	padding: 16px;
+	background: #F7F7F7;
+    margin-top: 10%;
+}
+.contact-form h1{
+    font-family: "Montserrat", sans-serif;
+	background: #43D1AF;
+	padding: 20px 0;
+    font-size: 30px;
+	text-align: center;
+	color: #fff;
+	margin: -16px -16px 16px -16px;
+}
+.contact-form input[type="text"],
+.contact-form input[type="date"],
+.contact-form input[type="datetime"],
+.contact-form input[type="email"],
+.contact-form input[type="number"],
+.contact-form input[type="search"],
+.contact-form input[type="time"],
+.contact-form input[type="url"],
+.contact-form textarea,
+.contact-form select 
+{
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 4%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color: #555;
+	font-family: "Montserrat", sans-serif;
+}
+.contact-form input[type="text"]:focus,
+.contact-form input[type="date"]:focus,
+.contact-form input[type="datetime"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="number"]:focus,
+.contact-form input[type="search"]:focus,
+.contact-form input[type="time"]:focus,
+.contact-form input[type="url"]:focus,
+.contact-form textarea:focus,
+.contact-form select:focus
+{
+	box-shadow: 0 0 5px #43D1AF;
+	padding: 3%;
+	border: 1px solid #43D1AF;
+}
+
+.contact-form input[type="submit"],
+.contact-form input[type="button"]{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 3%;
+	background: #43D1AF;
+	border-bottom: 2px solid #30C29E;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;	
+	color: #fff;
+    font-family: "Montserrat", sans-serif;
+}
+.contact-form input[type="submit"]:hover,
+.contact-form input[type="button"]:hover{
+	background: #2EBC99;
+}

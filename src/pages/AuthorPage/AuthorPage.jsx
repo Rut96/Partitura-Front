@@ -5,10 +5,10 @@ import axios from 'axios';
 export default class AuthorPage extends React.Component { 
     constructor(props) {
         super(props);
-       // console.log(props)
+       console.log(props)
         this.state = {
             // authorID: '',
-            authorID: props.location.state.author,
+            authorID: props.location.state.state,
             authorImage: '',
             name: '',
             bio: '',
@@ -44,37 +44,29 @@ export default class AuthorPage extends React.Component {
     }
 
     render() {
-       // console.log(this.state);
         return (
-
             <div className="author-container">
-
                 <div className="about">
-
                     <div className="bio">
                         {
                             this.state.bio
                         }
                     </div>
-
                     <div className="au-img">
                       <img src={this.state.authorImage} alt="Author" referrerPolicy="no-referrer" className='image'/>
                     </div>
-
                 </div>
-
                 <div className="au-songs">
-
                     {
                         this.state.authorSongs.map((song)=>{
                            // console.log(song)
                             return(
                                 <div className="card r1" onClick={(e)=>{
-                                    e.preventDefault();
+                                    // e.preventDefault();
                                     this.props.history.push('/song', { _id: song.id });
                                     this.props.history.go('/song', { _id: song.id });
                                 }}>
-                                    <img src={song.image} referrerPolicy="no-referrer"/>
+                                    <img src={song.image} referrerPolicy="no-referrer" alt='img'/>
                                     <div className="card-content">
                                         <h2>{song.title}</h2>
                                         <p>{this.state.name}, {song.genre}</p>
@@ -83,9 +75,7 @@ export default class AuthorPage extends React.Component {
                             )
                         })
                     }
-
                 </div>
-
             </div>
         );
     }

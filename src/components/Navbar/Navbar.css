@@ -7,13 +7,13 @@
     /* background-color: rgb(177, 206, 231); */
 }
 
-li, a {
+/* li, a {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: black;
     text-decoration: none;
-}
+} */
 
 header {
     display: flex;
@@ -39,15 +39,48 @@ header {
     padding:  0px 20px;
 }
 
-.nav-links li a {
+.nav-links li div {
     transition: all 0.3s ease 0s;
-}
-
-.nav-links li a:hover {
-    color: rgb(126, 102, 207);
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 20px;
+    color: black;
+    text-decoration: none;
 }
+
+.nav-links li div:hover {
+    color: rgb(126, 102, 207);
+    font-weight: 500;
+    font-size: 25px;
+}
+
+
+.nav-links {
+    list-style: none;
+}
+
+.link {
+    
+    display: inline-block;
+    padding:  0px 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: rgb(126, 102, 207);
+    font-weight: 500;
+    font-size: 25px;
+}
+
+
+
+
+
+
 
 .search input[type="text"]
 {
@@ -59,6 +92,7 @@ header {
 	background: none;
 	background-color: #ffffff;
 	color: #000000;
+    font-family: "Montserrat", sans-serif;
     border-top-right-radius: 0px;
 	-moz-border-radius-top-right: 0px;
 	-webkit-border-radius-top-right: 0px;

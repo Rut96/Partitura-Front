@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import './SongInfoContainer.css';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player'; 
+import CustomLink from '../../components/CustomLink/CustomLink';
 
 export default function SongInfoContainer(props){
+
     return(
         <div className="info-container">
         <div className="author">
-          <a className="link-author" onClick={props.goToAuthor}>
-            {props.authorName}
-          </a>
+         
+            <CustomLink 
+            fontSize='32px'
+            className='link-author' 
+            to='/author' 
+            text={props.authorName}  
+            state={props.author}
+            history={props.history}
+            />
         </div>
 
         <div className="song-name">{props.title}</div>

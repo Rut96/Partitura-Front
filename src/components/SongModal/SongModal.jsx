@@ -1,21 +1,8 @@
-import React, {useState, useEffect} from "react";
-import axios from "axios";
+import React from "react";
+import './SongModal.css';
 
-export const SongModal = ({image, title, dateAdded, author, genre, _id, history, instrument}) => {
-    // Initialize state to store the fetched data
-    const [authorData, setAuthor] = useState([]);
+export const SongModal = ({image, title, genre, _id, history, instrument, authorName}) => {
 
-    useEffect(() => {
-      const apiUrl = `/authors/${author}`;
-      axios.get(apiUrl)
-        .then(({data}) => {
-          // Update the state with the fetched data
-          setAuthor(data);
-        })
-        .catch((error) => {
-          console.error('Error fetching data:', error);
-        });
-    }, [author]);
 
     const handleClick = () => {
      // console.log(history);
@@ -26,11 +13,11 @@ export const SongModal = ({image, title, dateAdded, author, genre, _id, history,
 
 
     return(
-      <div className="card r1" onClick={()=>handleClick()}>
-        <img src={image} alt="Mountains" />
+      <div className="card" onClick={()=>handleClick()}>
+        <img src={image} alt="song-img" />
           <div className="card-content">
           <h2>{title}</h2>
-          <p>{authorData.name}, {genre}</p>
+          <p>{authorName}, {genre}</p>
         </div>
       </div>
     )

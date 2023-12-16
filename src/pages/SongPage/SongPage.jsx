@@ -140,10 +140,15 @@ export default class SongPage extends React.Component {
     line.items.forEach((item) => {
       //// console.log(item)
       if(item.chords){
-        allChords.push(item.chords);
+        // console.log(item.chords)
+        if(item.chords.length < 5){
+          allChords.push(item.chords.replaceAll('0', 'maj'));
+        }
       }
     });
   });
+
+  // console.log(allChords)
   
   //filter unique items
   return allChords.filter((value, index)=> allChords.indexOf(value) === index);
@@ -170,8 +175,8 @@ export default class SongPage extends React.Component {
     })
   }
 
-  goToAuthor(){
-   // console.log(this.props)
+  goToAuthor(e){
+   console.log(this.props)
     this.props.history.push('/author', { author: this.state.author});
     this.props.history.go('/author', { author: this.state.author });
   }
@@ -246,7 +251,6 @@ export default class SongPage extends React.Component {
   }
 
   pianoChords(chords){
-    
     const groupedChords = this.groupChords(chords, 3);
     console.log(groupedChords)
     return(
@@ -258,11 +262,11 @@ export default class SongPage extends React.Component {
             srcUrl = srcUrl+group;
             console.log(srcUrl)
             return(
-              <div key={index}>
+              <div key={index} className='piano_group'>
               <iframe 
                 title={index}
                 frameborder="0"
-                width="800px" height="200px"
+                width="400px" height="150px"
                 src={srcUrl}>
               </iframe>
               </div>
@@ -299,15 +303,13 @@ export default class SongPage extends React.Component {
 
   render() {
     const chords = this.extractChordsFromChordSheet(this.state.lyrics);
-    console.log(this.props)
-   // console.log(this.state.authorSongs);
+    console.log(this.state.author)
     return (
       <div>
         <div className="main-songPage-container">
           <div className="other-songs-container">
             {
-              
-             
+
               this.state.authorSongs.length > 0 ? this.state.authorSongs.map((song, index)=>{
                 return <SongCard key={index} imageUrl={song.image} title={song.title} author={song.author} genre={song.genre} _id={song._id} history={this.props.history}/>
               }) : null
@@ -317,7 +319,9 @@ export default class SongPage extends React.Component {
           </div>
 
           {
-            <Instruments chooseInstrument={this.chooseInstrument.bind(this)} className='instruments'/>
+            <Instruments 
+            chooseInstrument={this.chooseInstrument.bind(this)} 
+            className='instruments'/>
           }
 
           {
@@ -332,27 +336,23 @@ export default class SongPage extends React.Component {
 
 
           {
-            //authorData.name title
             <SongInfoContainer 
               authorName={this.state.authorData.name} 
               title={this.state.title} 
               songVideo={this.state.songVideo}
               author={this.state.author}
-              // history={this.props.history}
-              goToAuthor={this.goToAuthor.bind(this)}
+              history={this.props.history}
+              // goToAuthor={this.goToAuthor.bind(this)}
             />
           }
 
-          {/* {
-            <ChordContainer chords={chords}/>
-          } */}
           {
             this.drawChordsByType(this.state.instrumentChoosen, chords)
           }
 
           {
             <SongLyricsContainer 
-            lyrics={this.state.lyrics} 
+            lyrics={this.state.lyrics.replaceAll('0', '')} 
             id={this.state.id}
             fontSize={this.state.fontSize}
             />

@@ -1,0 +1,37 @@
+.authorDeleteAdmin{
+    width: 50%;
+    margin: 30px;
+    padding: 10px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+
+.selectDeletAuthor {
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.adminDeleteAuthor-submit{
+    background: #60b8d4;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+}
+
+.adminDeleteAuthor-submit:hover{
+	background: #3745b5;
+    
+}
+
+
+

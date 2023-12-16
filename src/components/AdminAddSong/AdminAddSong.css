@@ -1,0 +1,46 @@
+label{
+    display: block;
+    width:fit-content;
+}
+
+.addSongAdmin{
+    display: block;
+    height: auto;
+    width: 50%;
+    margin: 30px;
+    padding: 10px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+
+.adminAddSong-input{
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 20px;
+    /* text-align: center; */
+    font-family: "Montserrat", sans-serif;
+    
+}
+
+.adminAddSong-input input ,.adminAddSong-input textarea, .adminAddSong-input select{
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+.adminAddSong-submit{
+    background: #60b8d4;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+.adminAddSong-submit:hover{
+	background: #3745b5;
+    
+}

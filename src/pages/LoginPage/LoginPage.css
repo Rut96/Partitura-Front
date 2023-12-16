@@ -140,7 +140,7 @@
 	text-decoration: none;
 }
 
-.links a {
+/* .links a {
 	color: #000;
 	position: relative;
 	text-decoration: none;
@@ -160,7 +160,7 @@
 .links a:hover::before {
 	transform: scaleX(1);
 	transform-origin: left;
-}
+} */
 
 .error-message {
 	color: red;

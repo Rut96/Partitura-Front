@@ -1,12 +1,5 @@
-html, body, #root {
-    height: 100%;
-    background-color: #dee2ff;
-    background-image: linear-gradient(0deg, #dee2ff 0%, #B5FFFC 50%, #ffffff 100%);
-}
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
-#root > div {
-    height: 100%;
-}
 .personal-container {
     height: 100%;
     /* display: grid;  */
@@ -16,6 +9,8 @@ html, body, #root {
     grid-template-areas: 
     "personal-info personal-info"
     "personal-settings personal-settings"; 
+    background-color: #dee2ff;
+    background-image: linear-gradient(0deg, #dee2ff 0%, #B5FFFC 50%, #ffffff 100%);
 }
 
 .personal-info { grid-area: 1 / 1 / 2 / 3; }
@@ -32,10 +27,10 @@ html, body, #root {
 
     border: 3px solid #333;
     border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
-    position: relative;
+    /* position: relative; */
 }
 
-.personal-info::before {
+/* .personal-info::before {
     content: '';
     border: 2px solid #353535;
     width: 100%;
@@ -45,7 +40,7 @@ html, body, #root {
     left: 50%;
     transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
     border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
-}
+} */
 
 .pers-img img{
     border: 1px solid #ddd;
@@ -56,32 +51,31 @@ html, body, #root {
 }   
 
 .pers-img img:hover {
-    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    box-shadow: 0 0 2px 1px rgb(5, 75, 98);
 }
 
 .pers-info {
-    color: #fcdde8;
-    font-size: 50px;
-    font-weight: 300;
-    text-shadow:
-    -0.0075em 0.0075em 0 #fef2f6, 
-    0.005em 0.005em 0 #a5abf6, 
-    0.01em 0.01em 0 #aeaaf7, 
-    0.015em 0.015em #b4aef7, 
-    0.02em 0.02em 0 #b5b3f8, 
-    0.025em 0.025em 0 #bbb7f8, 
-    0.03em 0.03em 0 #c5bcf8, 
-    0.035em 0.035em 0 #c0ccf9;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+    text-align: center;
 }
 
-
-.link a {
-    color: #fcdde8;
-    font-size: 40px;
-    font-weight: 200;
+.link-settings {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: black;
+    /* position: relative; */
+	justify-content: center;
+	text-decoration: none;
+    margin: 20px;
+    /* display: inline-block; */
+    
 }
 
-/* .link a::before {
+/* #settings::before {
     background: hsl(45 100% 70%);
 	content: "";
 	inset: 0;
@@ -92,13 +86,30 @@ html, body, #root {
 	z-index: -1;
 }
 
-.link a:hover::before {
+#settings:hover::before {
     transform: scaleX(1);
 	transform-origin: left;
 } */
 
 
-.personal-settings {  
+/* .link-settings a::before {
+    background: hsl(45 100% 70%);
+	content: "";
+	inset: 0;
+	position: absolute;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.5s ease-in-out;
+	z-index: -1;
+}
+
+.link-settings a:hover::before {
+    transform: scaleX(1);
+	transform-origin: left;
+} */
+
+
+/* .personal-settings {  
     display: grid;
     grid-template-columns: 0.5fr 1.5fr;
     grid-template-rows: 1fr;
@@ -106,24 +117,31 @@ html, body, #root {
     grid-auto-flow: row;
     grid-template-areas:
         ". .";
-}
+} */
 
-.settings {
+.progression {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 20px;
     color: black;
     margin: 20px;
     /* margin-left: 20px; */
+    float: right;
+    width: 200px; 
+    height: 200px; 
+    position: relative; 
+    bottom: 165px
 }
 
 .favoriteWrapper {
     display: flex;
-    height: 100%;
+    height: auto;
     width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.card {
+.card_profile {
     width: 300px;
     height: 350px;
     border-radius: 10px;
@@ -132,9 +150,10 @@ html, body, #root {
     position: relative;
     box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
     margin: 20px;
+    margin-bottom: 50px;
 }
 
-.card img {
+.card_profile img {
     position: absolute;
     object-fit: cover;
     width: 100%;
@@ -144,7 +163,7 @@ html, body, #root {
     opacity: 0.9;
     transition: opacity 0.2s ease-out;
 }
-.card h2 {
+.card_profile h2 {
     position: absolute;
     inset: auto auto 30px 30px;
     margin: 0;
@@ -154,7 +173,7 @@ html, body, #root {
     text-transform: uppercase;
     color: black;
 }
-.card p {
+.card_profile p {
     position: absolute;
     opacity: 0;
     max-width: 80%;
@@ -163,35 +182,107 @@ html, body, #root {
     color: black;
 }
 
-.card:hover h2 {
+.card_profile:hover h2 {
     inset: auto auto 70px 30px;
     transition: inset 0.3s ease-out;
 }
-.card:hover p {
+.card_profile:hover p {
     opacity: 1;
     transition: opacity 0.5s 0.1s ease-in;
 }
-.card:hover img {
+.card_profile:hover img {
     transition: opacity 0.3s ease-in;
     opacity: 1;
 }
 
 
-.card {
+.card_profile {
     position: relative;
   }
   
   .delete-icon {
+    position: relative;
+    top: -35px;
+    right: -20px;
+    cursor: pointer;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    z-index: 5;
+  }
+
+  .add-icon {
+    position: relative;
+    top: -85px;
+    margin-left: 275px;
+    cursor: pointer;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    z-index: 5;
+  }
+  
+  .card_profile:hover .delete-icon {
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+  .icon-wrapper{
+    display: block;
+  }
+
+  /* Modal styles ------------------------------------------------------------------- */
+.modal-overlay {
+    /* width: 650px; */
+    /* height: 650px; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+  }
+
+  .modal-overlay input {
+    width: 100%;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 650px;
+  }
+  
+  .close-button {
     position: absolute;
     top: 10px;
     right: 10px;
+    font-size: 20px;
     cursor: pointer;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s ease-in-out;
+    color: hsl(339, 40%, 17%);
+    border: 1px solid black;
+    border-radius: 5%;
+    background-color: #B5FFFC;
   }
   
-  .card:hover .delete-icon {
-    visibility: visible;
-    opacity: 1;
+  .close-button:hover {
+    color: red;
+  }
+  /* Modal styles end --------------------------------------------------------------- */
+  .settingsBtn {
+    width: 100%;
   }

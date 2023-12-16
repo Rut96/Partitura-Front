@@ -8,7 +8,7 @@ import './UkuleleChord.css'
 const UkuleleChord = ({ chordName }) => {
     //// console.log(chordName.split(''))
     let mainChordName = chordName.split('')[0] 
-    let suffixChordName = chordName.split('')[chordName.split('').lenght] 
+    // let suffixChordName = chordName.split('')[chordName.split('').lenght] 
     const instrument = Data.main
     const tunings = Data.tunings
     //// console.log(tunings)

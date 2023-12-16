@@ -1,0 +1,43 @@
+.addAuthor{
+    width: 50%;
+    height: auto;
+    margin: 30px;
+    padding: 10px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+
+.adminAddAuthor-input{
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 20px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.adminAddAuthor-input input ,.adminAddAuthor-input textarea, .adminAddAuthor-input select{
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.adminAddAuthor-submit{
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    font-family: "Montserrat", sans-serif;
+    
+    background: #60b8d4;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+.adminAddAuthor-submit:hover{
+	background: #3745b5;
+    
+}

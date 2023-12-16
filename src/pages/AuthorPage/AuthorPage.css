@@ -18,9 +18,10 @@
 
 .au-songs {
     height: 800px;
+    display: flex;
 }
 
-.card {
+/* .card {
     width: 300px;
     height: 350px;
     border-radius: 10px;
@@ -29,9 +30,9 @@
     position: relative;
     box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
     margin: 20px;
-}
+} */
 
-.card img {
+/* .card img {
     position: absolute;
     object-fit: cover;
     width: 100%;
@@ -40,8 +41,8 @@
     left: 0;
     opacity: 0.9;
     transition: opacity 0.2s ease-out;
-}
-.card h2 {
+} */
+/* .card h2 {
     position: absolute;
     inset: auto auto 30px 30px;
     margin: 0;
@@ -50,17 +51,17 @@
     font-weight: normal;
     text-transform: uppercase;
     color: black;
-}
-.card p {
+} */
+/* .card p {
     position: absolute;
     opacity: 0;
     max-width: 80%;
     transition: opacity 0.3s ease-out;
     inset: auto auto 40px 30px;
     color: black;
-}
+} */
 
-.card:hover h2 {
+/* .card:hover h2 {
     inset: auto auto 70px 30px;
     transition: inset 0.3s ease-out;
 }
@@ -72,7 +73,7 @@
     transition: opacity 0.3s ease-in;
     opacity: 1;
 }
-  
+   */
 .au-img img{
     display: block;
     margin-left: 400px;

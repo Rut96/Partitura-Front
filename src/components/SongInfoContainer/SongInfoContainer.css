@@ -1,11 +1,6 @@
 .info-container { 
     grid-area: 3 / 2 / 7 / 3;
-    border: 1px solid black;
-    /* width: 50%; */
 }
-/* .author { 
-    grid-area: 4 / 2 / 5 / 4;
-} */
 
 .author {
 	width: 100%;
@@ -50,6 +45,5 @@
 }
 
 .youtube {
-    border: 1px solid black;
     height: 60%;
 }

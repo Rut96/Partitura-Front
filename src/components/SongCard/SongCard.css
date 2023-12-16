@@ -1,4 +1,4 @@
-/* song card style -------------------------------------------------------------------------------------------------- */
+
 .card {
     width: 300px;
     height: 350px;
@@ -28,7 +28,7 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
     text-transform: uppercase;
-    color: black;
+    color: rgb(246, 226, 8);
 }
 .card p {
     position: absolute;
@@ -36,7 +36,7 @@
     max-width: 80%;
     transition: opacity 0.3s ease-out;
     inset: auto auto 40px 30px;
-    color: black;
+    color: rgb(246, 226, 8);
 }
 
 .card:hover h2 {
@@ -51,4 +51,3 @@
     transition: opacity 0.3s ease-in;
     opacity: 1;
 }
-/* song card style ends ------------------------------------------------------------------------------------------------------------------------ */

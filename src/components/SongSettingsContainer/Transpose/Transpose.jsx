@@ -16,16 +16,16 @@ function Transpose({transpose}){
     return(
     <div className="transpose">
     <h1>transpose</h1>
-    <a className="arrow-up" onClick={handleTransposeUp}>
+  <div className="arrow-up" onClick={handleTransposeUp}>
       <span className="left-arm"></span>
       <span className="right-arm"></span>
       <span className="arrow-slide"></span>
-    </a>
-    <a className="arrow-down" onClick={handleTransposeDown}>
+    </div>
+    <div className="arrow-down" onClick={handleTransposeDown}>
       <span className="left-arm"></span>
       <span className="right-arm"></span>
       <span className="arrow-slide"></span>
-    </a>
+    </div>
   </div>)
 }
 

@@ -9,11 +9,16 @@ function Navbar() {
   const [searchText, setSearchText] = useState('');
   const placeHolder = 'Search';
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [showAdmin, setShowAdmin] = useState(false);
 
   useEffect(() => {
     // Update the document title using the browser API
       axios.get('/isLogIn').then(res=>{
-        setIsUserLoggedIn(res.data);
+        let { role } = res.data;
+        role === 'admin' ? setShowAdmin(true) : setShowAdmin(false);
+        // showAdmin ? alert('admin') : alert(role);
+        // console.log(res.data.role)
+        setIsUserLoggedIn(res.data ? true : false);
       })
   }, []);
 
@@ -31,15 +36,15 @@ function Navbar() {
   }
   const logOut = () => {
     return(
-      <a href="#" >
+      <div >
         <button className="log-in" onClick={()=>sendLogOut()}>Log out</button>
-      </a>
+      </div>
     )
   }
 
 const sendLogOut = async () => {
 try{
-    axios.get('/logout', {withCredentials: true}).then(res=>{
+    axios.get('/auth/logout', {withCredentials: true}).then(res=>{
     window.location.href = '/';
     });
 }catch(error){
@@ -52,10 +57,13 @@ try{
       <img className="logo" src={logo} alt="logo" />
       <nav>
         <ul className="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/contant">Contact</a></li>
+          <li><a href="/" className="link home">Home</a></li>
+          <li><a href="/contact" className="link contact">Contact</a></li>
           {
-            isUserLoggedIn ? <li><a href="/profile">Profile</a></li> : null
+            isUserLoggedIn ? <li><a href="/profile" className="link profile">Profile</a></li> : null
+          }
+          {
+            showAdmin ?  <li><a href="/admin" className="link profile">Admin</a></li> : null
           }
           <li className="search">
             <form className="search-form"onSubmit={(e)=>e.preventDefault()}>
