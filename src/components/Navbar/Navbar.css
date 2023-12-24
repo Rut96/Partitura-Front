@@ -23,7 +23,7 @@ header {
 }
 
 .logo {
-    cursor: pointer;
+    /* cursor: pointer; */
     padding: 10px;
     margin-right: auto;
     margin-bottom: 15px;
@@ -103,6 +103,7 @@ header {
 
 .search input[type="submit"]
 {
+    height: 40px;
 	border: 1px solid #1f1b62;
 	overflow: auto;
 	border-radius: 20px;

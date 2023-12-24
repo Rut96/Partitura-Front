@@ -19,7 +19,6 @@ export default class AuthorPage extends React.Component {
 
     componentDidMount(){
         axios.get(`/authors/${this.state.authorID}`).then((res)=>{
-           // console.log(res.data);
             let { bio, birthdate, image, name} = res.data;
             this.setState({
                 bio,
@@ -28,7 +27,6 @@ export default class AuthorPage extends React.Component {
                 birthdate
             });
             axios.get(`/songs/search/author/${this.state.authorID}`).then((res)=>{
-               // console.log(res.data)
                 let authorSongs = res.data.map((item)=>{
                     return {
                         title: item.title,
@@ -38,7 +36,6 @@ export default class AuthorPage extends React.Component {
                     }
                 })
                 this.setState({authorSongs})
-               // console.log(this.state);
             })
         })
     }
@@ -46,6 +43,7 @@ export default class AuthorPage extends React.Component {
     render() {
         return (
             <div className="author-container">
+                
                 <div className="about">
                     <div className="bio">
                         {
@@ -56,10 +54,11 @@ export default class AuthorPage extends React.Component {
                       <img src={this.state.authorImage} alt="Author" referrerPolicy="no-referrer" className='image'/>
                     </div>
                 </div>
+
+
                 <div className="au-songs">
                     {
                         this.state.authorSongs.map((song)=>{
-                           // console.log(song)
                             return(
                                 <div className="card r1" onClick={(e)=>{
                                     // e.preventDefault();

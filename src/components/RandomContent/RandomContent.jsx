@@ -26,8 +26,8 @@ const RandomContent = (props) => {
             <div key={index}>
               {
                 props.isLogin ?
-                  <div onClick={() => handleFavoriteClick(item)} style={{ cursor: 'pointer' }}>
-                    '❤️'
+                  <div className="heartEmoji" onClick={() => handleFavoriteClick(item)} style={{ cursor: 'pointer' }}>
+                    ❤️
                   </div>
                   : null
               }

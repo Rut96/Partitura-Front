@@ -32,7 +32,7 @@ function App() {
         <Route path="/song" exact component={SongPage} />
         <Route path="/" exact component={HomePage} />
         <Route path="/author" exac component={AuthorPage} />
-        <Footer className='footer'/>
+        {/* <Footer className='footer'/> */}
     </div>
   );
 };

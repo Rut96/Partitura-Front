@@ -39,14 +39,37 @@ const ProfilePage = ({ history }) => {
     _id: ''
   });
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get('/auth/profile', {
+          // with coockies 
+           withCredentials: true, 
+          });
+        let { avatarImage, email, favoriteSongs, progress, role, username, _id } = res.data;
+        setState({
+          avatarImage,
+          email,
+          favoriteSongs,
+          progress,
+          role,
+          username,
+          _id
+        });
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
+      }
+    };
+    fetchData();
+  }, []); // Empty dependency array means this effect will only run once on mount
 
   const deleteFromProgress = (_id) => {
     let progress = state.progress;
-    let index = progress.filter((item) => item !== _id)
+    let filtredArrey = progress.filter((item) => item !== _id)
     console.log(_id);
-    console.log(index);
-    setState({ ...state, progress: index });
-    progress = index;
+    console.log(filtredArrey);
+    setState({ ...state, progress: filtredArrey });
+    progress = filtredArrey;
     axios.post('/user/progress', { progress }).then((res)=>{
       let { avatarImage, email, favoriteSongs, progress, role, username, _id } = res.data;
       setState({
@@ -63,6 +86,7 @@ const ProfilePage = ({ history }) => {
   }
 
   const handleDelete = (indexToDelete, event, _id) => {
+    // cancels the event if it is cancelable,
     event.preventDefault()
     deleteFromProgress(_id);
     let arrayOfSongs = state.favoriteSongs;
@@ -90,7 +114,6 @@ const ProfilePage = ({ history }) => {
 
   const handleAddToProgress = (_id) => {
     let songId = _id;
-    console.log('HELP')
     let exist = state.progress.filter((obj) => {
       return obj === _id
     });
@@ -118,17 +141,8 @@ const ProfilePage = ({ history }) => {
   }
 
   const updateUser = (username, password, imagUrl) => {
-    axios.post('/user/updateUser', { username, password, imagUrl })
-  }
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get('/auth/profile', {
-           withCredentials: true, 
-          });
-        console.log(res);
-        let { avatarImage, email, favoriteSongs, progress, role, username, _id } = res.data;
+    axios.post('/user/updateUser', { username, password, imagUrl }).then((res)=>{
+      let { avatarImage, email, favoriteSongs, progress, role, username, _id } = res.data;
         setState({
           avatarImage,
           email,
@@ -138,21 +152,40 @@ const ProfilePage = ({ history }) => {
           username,
           _id
         });
-      } catch (error) {
-        console.error("Error fetching profile data:", error);
-      }
-    };
+    })
+  }
 
-    fetchData();
-  }, []); // Empty dependency array means this effect will only run once on mount
+  const handleRemoveFromProgress = (id) => {
+    let progress = state.progress;
+    let filtredArrey = progress.filter((item) => item !== id);
+    setState({
+      ...state,
+      progress: filtredArrey
+    });
+    axios.post('/user/progress', { progress: filtredArrey }).then((res)=>{
+      let { avatarImage, email, favoriteSongs, progress, role, username, _id } = res.data;
+      setState({
+        avatarImage,
+        email,
+        favoriteSongs,
+        progress,
+        role,
+        username,
+        _id
+      });
+    });
+  }
+
 
   return (
     <div className="personal-container">
 
             <div className="personal-info">
+
               <div className="pers-img">
                 <img src={state.avatarImage || personImg } alt="Italian Trulli" referrerPolicy="no-referrer" />
               </div>
+
               <div className="pers-info">
                 <div>username: { state.username }</div>
                 <div>email: {state.email}</div>
@@ -164,13 +197,15 @@ const ProfilePage = ({ history }) => {
                     <SettingsModal resetProgress={resetProgress} updateUser={updateUser} toggleSettings={toggleSettings} userName={state.username} avatarImage={state.avatarImage}/>
                   </Modal>
                 </div>
+
               <div className="progression">
                 <CircularProgressbar 
                 value={state.progress.length} 
                 maxValue={state.favoriteSongs.length} 
-                text={`${ Math.floor((state.progress.length/state.favoriteSongs.length) * 100) || 0 }%`}/>:
+                text={`${ Math.floor((state.progress.length/state.favoriteSongs.length) * 100) || 0 }%`}/>
                 <div>progression</div>
               </div>
+              
               </div>
             </div>
       
@@ -178,23 +213,16 @@ const ProfilePage = ({ history }) => {
                 {
                   //img, title, authorName, genre
                   state.favoriteSongs.map((favSong, index)=>{
-                   // console.log(this.state.favoriteSongs)
-                    // favSong = favSong[0]
                     favSong = JSON.parse(favSong)
-                   // console.log(favSong)
                     return(
                       <div key={index}>
                       
                       <div className="card_profile i1" >
-                        
-
                         <img src={favSong.image} alt="Favorite 1" referrerPolicy="no-referrer" onClick={()=>handleClick(favSong._id)} />
                         <div className="favorite-content">
                           <h2>{favSong.title}</h2>
                           <p>{favSong.genre}</p>
-                        </div>
-                        
-                        
+                        </div>          
                       </div>
 
                       <div className="icon-wrapper">
@@ -203,6 +231,9 @@ const ProfilePage = ({ history }) => {
                         </div>
                         <div className="add-icon" onClick={()=>handleAddToProgress(favSong._id)}>
                           ➕
+                        </div>
+                        <div className="remove-icon" onClick={()=>handleRemoveFromProgress(favSong._id)}>
+                          ➖
                         </div>
                       </div>
                       

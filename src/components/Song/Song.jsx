@@ -1,9 +1,6 @@
-
 import React from 'react';
 import ChordSheetJS from 'chordsheetjs';
-
 import './Song.css';
-
 
 export default class SongPage extends React.Component {
   constructor(props){
@@ -14,11 +11,9 @@ export default class SongPage extends React.Component {
     }
   }
 
-
-
   render(){
     const parser = new ChordSheetJS.UltimateGuitarParser();
-    const song = parser.parse(this.props.lyrics.substring(1))
+    const song = parser.parse(this.props.lyrics.substring(0))
     const formatter = new ChordSheetJS.HtmlTableFormatter()
     // const formatter2 = new ChordSheetJS.HtmlDivFormatter()
     // const disp2 = formatter2.format(song)

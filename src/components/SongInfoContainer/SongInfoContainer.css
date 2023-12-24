@@ -1,5 +1,6 @@
 .info-container { 
-    grid-area: 3 / 2 / 7 / 3;
+    grid-area: 4 / 3 / 4 / 6;
+	z-index: 99;
 }
 
 .author {

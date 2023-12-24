@@ -2,10 +2,19 @@ import React, { useState } from 'react';
 
 import './FilterBar.css';
 
-const FilterBar = ({ onFilterChange, authorNames, genres }) => {
+const FilterBar = ({ onFilterChange, onSearchChange, onReset, authorNames, genres }) => {
   const [authorFilter, setAuthorFilter] = useState(false);
   const [genreFilter, setGenreFilter] = useState(false);
   const [dateFilter, setDateFilter] = useState(false);
+  const [search, setSearch] = useState(null);
+
+  const submitSearch = () => {
+    onSearchChange(search);
+  }
+
+  const reset = () => {
+    onReset()
+  }
 
   const trigger = (item) => {
     
@@ -32,6 +41,7 @@ const FilterBar = ({ onFilterChange, authorNames, genres }) => {
 
   return (
     <div className='btns'>
+      {/* coloring and trigger */}
       <div className="order">
         <button 
           onClick={()=>trigger('authorName')}
@@ -62,8 +72,8 @@ const FilterBar = ({ onFilterChange, authorNames, genres }) => {
         > 
         date
         </button>
-      </div>
-       
+      </div> 
+          
         {
           genreFilter ?  <div className='order'>
           {
@@ -101,17 +111,25 @@ const FilterBar = ({ onFilterChange, authorNames, genres }) => {
         {
           dateFilter ? <div className='order'>
           {
-            // authorNames.map((name, idx)=>{
-              // return(
                 <button className='by'onClick={()=>onFilterChange('date', 'dateAdded')}>
                   Date
                 </button>
-              // )
-  
-            // })
           }
         </div> : null
         }
+
+        <li className="search">
+            <form className="search-form"onSubmit={(e)=>e.preventDefault()}>
+              <input 
+              id="searchField" 
+              type="text" 
+              placeholder={'Search'} 
+              onChange={(e) => setSearch(e.target.value) }
+              />
+              <button className='resetBtn' onClick={reset} >Reset</button>
+              <input type="submit" value="Search" onClick={submitSearch}/>
+            </form>
+          </li>
     </div>
   );
 };

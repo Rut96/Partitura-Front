@@ -12,13 +12,7 @@ function ForgotPassPage(props) {
     e.preventDefault();
     try {
       let res = await axios.post('/auth/forgotPassword', { email });
-
-      if (res.status === 302) {
-       // console.log('redirect')
-        // Handle success action here
-        // Redirect or set state as needed
-      } else if (res.status === 401) {
-        // Authentication failure, set error message
+      if (res.status === 401) {
         setErrorMessage('Username or password is incorrect.');
       }
       props.history.push('/login');
@@ -42,7 +36,7 @@ function ForgotPassPage(props) {
       <div className="top"></div>
       <div className="bottom"></div>
       <div className="center">
-        <h2>Login</h2>
+        <h2>Forgot Password</h2>
         <input type="email" placeholder="email" onChange={(e) => setEmail(e.target.value)} />
         
         {errorMessage ? <div className="error-message">{errorMessage}</div>: null}

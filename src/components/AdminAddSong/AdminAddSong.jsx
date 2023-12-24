@@ -10,11 +10,8 @@ const AdminAddSong = ({authorsArr}) => {
     authorName: '',
     lyrics: '',
     genre: '',
-    type: '',
-    chords: '',
     image: '',
-    songVideo: '',
-    dateAdded: '',
+    songVideo: ''
   });
 
   const handleChange = (e) => {
@@ -27,31 +24,37 @@ const AdminAddSong = ({authorsArr}) => {
   
   const handleChangeAuthor = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    console.log(name, value)
     let authorId = value;
     let authorName = authorsArr.filter((author)=>{
       return author._id === authorId
     })
     setFormData({
       ...formData,
-      authorName: authorName[0].name
+      [name]: value,
+      authorName: authorName[0].name,
     })
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const apiUrl = '/songs';
-
     try {
-      // Using Axios to send a POST request
+      // send a POST request
       const response = await axios.post(apiUrl, formData);
-
+      if(response){
+        setFormData({
+          title: '',
+          author: '',
+          // authorName: '',
+          lyrics: '',
+          genre: '',
+          image: '',
+          songVideo: ''
+        })
+      }
       console.log('Success:', response.data);
-      // You can handle the success response here
+    
     } catch (error) {
       console.error('Error:', error);
     }
@@ -68,8 +71,7 @@ const AdminAddSong = ({authorsArr}) => {
       </div>
 
       <div>
-        <select className='adminAddSong-input' name="author" placeholder='Author' value={formData.author} onChange={handleChangeAuthor}>
-          <option value="">Select an author</option>
+        <select className='adminAddSong-input' name="author" placeholder='Select an author'  onChange={handleChangeAuthor}>
           {
           authorsArr.map((author, id) => (
             <option key={id} value={author._id}>
@@ -96,9 +98,6 @@ const AdminAddSong = ({authorsArr}) => {
         <input className='adminAddSong-input' type="text" placeholder='Song Video' name="songVideo" value={formData.songVideo} onChange={handleChange} />
       </div>
 
-      <div>
-        <input className='adminAddSong-input' type="text" placeholder='Date Added' name="dateAdded" value={formData.dateAdded} onChange={handleChange} />
-      </div>
       <button className='adminAddSong-input adminAddSong-submit' type="submit">Submit</button>
 
     </form>

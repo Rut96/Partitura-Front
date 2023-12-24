@@ -5,9 +5,7 @@ import logo from './logo.svg';
 import axios from 'axios';
 
 
-function Navbar() {
-  const [searchText, setSearchText] = useState('');
-  const placeHolder = 'Search';
+function Navbar(props) {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [showAdmin, setShowAdmin] = useState(false);
 
@@ -16,16 +14,9 @@ function Navbar() {
       axios.get('/isLogIn').then(res=>{
         let { role } = res.data;
         role === 'admin' ? setShowAdmin(true) : setShowAdmin(false);
-        // showAdmin ? alert('admin') : alert(role);
-        // console.log(res.data.role)
         setIsUserLoggedIn(res.data ? true : false);
       })
   }, []);
-
-  const clickOnSearch = () => {
-    alert(searchText);
-    setSearchText('');
-  };
 
   const login = () => {
     return(
@@ -42,15 +33,15 @@ function Navbar() {
     )
   }
 
-const sendLogOut = async () => {
-try{
-    axios.get('/auth/logout', {withCredentials: true}).then(res=>{
-    window.location.href = '/';
-    });
-}catch(error){
-    console.error('Logout failed:', error);
-}
-}
+  const sendLogOut = async () => {
+  try{
+      axios.get('/auth/logout', {withCredentials: true}).then(res=>{
+      window.location.href = '/';
+      });
+  }catch(error){
+      console.error('Logout failed:', error);
+  }
+  }
 
   return (
     <header style={{ backgroundColor: 'rgb(207, 217, 229)' }}>
@@ -65,13 +56,8 @@ try{
           {
             showAdmin ?  <li><a href="/admin" className="link profile">Admin</a></li> : null
           }
-          <li className="search">
-            <form className="search-form"onSubmit={(e)=>e.preventDefault()}>
-              <input type="text" placeholder={placeHolder} onChange={(e) => setSearchText(e.target.value)}/>
-              <input type="submit" value="Search" onClick={clickOnSearch}/>
-            </form>
-          </li>
-          {isUserLoggedIn ? '' : <li><a href="/signup">Sign up</a></li>}
+
+          {isUserLoggedIn ? '' : <li><a href="/signup" className="link signup">Sign up</a></li>}
         </ul>
       </nav>
       {

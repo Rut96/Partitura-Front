@@ -4,8 +4,8 @@
 }
 
 .chords_item { 
-    /* grid-area: 2 / 4 / 3 / 6;
-      */
+    grid-area: 2 / 4 / 3 / 6;
+     
     height: 150px;
     display: flex;
     flex-wrap: wrap;
@@ -13,11 +13,21 @@
     
 }
 
+
+.chords-component{
+    display: flex;
+}
+
 .chord-item {
     width: 150px;
     border-radius: 5%;
     margin: 5px;
+    border: 1px solid black;
 }
-.chords-component{
-    display: flex;
+
+.chord-container{
+    width: 150px;
+    /* border: 1px solid black; */
+    border-radius: 5%;
+    
 }

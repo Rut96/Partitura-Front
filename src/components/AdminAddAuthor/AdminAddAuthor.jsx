@@ -7,7 +7,6 @@ const AdminAddAuthor = () => {
     const [formData, setFormData] = useState({
         name: '',
         bio: '',
-        birthdate: '',
         image: '',
     });
   
@@ -27,9 +26,12 @@ const AdminAddAuthor = () => {
       try {
         // Using Axios to send a POST request
         const response = await axios.post(apiUrl, formData);
-  
+        setFormData({
+          name: '',
+          bio: '',
+          image: '',
+        })
         console.log('Success:', response.data);
-        // You can handle the success response here
       } catch (error) {
         console.error('Error:', error);
       }
@@ -47,10 +49,6 @@ const AdminAddAuthor = () => {
   
         <div>
           <textarea className='adminAddAuthor-input' placeholder='Bio' name="bio" value={formData.bio} onChange={handleChange} />
-        </div>
-  
-        <div>
-          <input className='adminAddAuthor-input' placeholder='Birthdate' type="text" name="birthdate" value={formData.birthdate} onChange={handleChange} />
         </div>
   
         <div>

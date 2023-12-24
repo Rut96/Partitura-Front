@@ -4,13 +4,17 @@ import './SignUpPage.css';
 import axios from 'axios';
 
 function SignupPage(props) {
-  // Define your click event handler function here
+  
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordRepeat, setPasswordRepeat] = useState('');
+  const [errorMessage, setErrorMessage] = useState(null); 
+  
   const handleClick = async (e) => {
     // Handle the click event
     e.preventDefault();
-   // console.log(password)
     if(password === passwordRepeat){
-     // console.log(props)
       await sendNewUser(email, username, password)
     }
   };
@@ -18,10 +22,7 @@ function SignupPage(props) {
   const sendNewUser = async (email, username, password) => {
     try{
       let response = await axios.post('/user/register', { email, username, password });
-     // console.log(response)
       if(response.status === 200){
-       // console.log(response.data)
-        debugger;
         props.history.push('/');
         props.history.go('/');
       }else{
@@ -31,12 +32,6 @@ function SignupPage(props) {
      // console.log(err)
     }
   }
-
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordRepeat, setPasswordRepeat] = useState('');
-  const [errorMessage, setErrorMessage] = useState(null); 
 
   return (
     <div className="container">

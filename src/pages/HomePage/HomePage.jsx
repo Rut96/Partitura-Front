@@ -33,10 +33,17 @@ function HomePage(props) {
       let genres = res.data.map((item)=>{
         return item.genre
       })
-      setAuthorNames(authors);
-      setGenres(genres);
+      
+      setAuthorNames(removeDuplicates(authors));
+      setGenres(removeDuplicates(genres));
+      
     })
   }, []);
+
+  const removeDuplicates = (arr) => {
+    return arr.filter((item,
+        index) => arr.indexOf(item) === index);
+}
 
   const handleInstrument = (event) => {
     setInstrument(event);
@@ -47,7 +54,6 @@ function HomePage(props) {
     let filteredArray;
    
     if(value === 'date' && filterBy){
-      // return obj[key] === value;
       console.log('!!!!!!!!!!!!!!!')
       filteredArray = contentItems.sort(function(a, b) {
         return new Date(a.dateAdded) - new Date(b.dateAdded);
@@ -64,19 +70,37 @@ function HomePage(props) {
     
   }
 
+  const handleSearch = (searchText) => {
+    axios.post('/songs/search', { title: searchText }).then((res)=>{
+      setContentItems(res.data);
+      document.getElementById('searchField').value = '';
+    })
+  }
+
+  const handleReset = (str) => {
+    setContentItems(contentItemsBackUp)
+    document.getElementById('searchField').value = '';
+  }
+
   return (
     <div>
       <div className="main-container">
         <Instruments chooseInstrument={handleInstrument}/>
 
-        <FilterBar onFilterChange={handleFilter} authorNames={authorNames} genres={genres}/>
+        <FilterBar 
+          onReset={handleReset}
+          onFilterChange={handleFilter}
+          onSearchChange={handleSearch}
+          authorNames={authorNames} 
+          genres={genres}
+        />
 
         <div className="randomSongs-container">
           <RandomContent 
-          contentItems={contentItems}
-          instrument={instrument}
-          history={props.history} 
-          isLogin={isUserLoggedIn}
+            contentItems={contentItems}
+            instrument={instrument}
+            history={props.history} 
+            isLogin={isUserLoggedIn}
           />
         </div>
       </div>

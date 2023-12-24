@@ -17,7 +17,6 @@ const SongSettingsContainer = ({transpose, scrollDown, isLogin, handleAddFav, ha
       <Transpose transpose={transpose} />
       <Scroll scrollDown={scrollDown}/>
       <Font handleFont={handleFont}/>
-      
       {
         isLogin ? <div onClick={handleAdd}>
         <Favorite />

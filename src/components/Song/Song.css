@@ -1,3 +1,7 @@
 .chord-sheet{
     width: 600px;
 }
+
+.chord-sheet .row {
+    margin: 0;
+}

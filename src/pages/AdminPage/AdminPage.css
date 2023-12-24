@@ -1,14 +1,20 @@
+
 .msgCard{
-    width: 100%;
+    width: 80%;
     border-radius: 5%;
     margin: 50px;
     padding: 5px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    color: black;
 }
 
+
 .msgTab{
-    overflow: scroll;
+    
     height: auto;
 }
+
 .statsTab{
     overflow: scroll;
     height: 450px;
@@ -18,6 +24,7 @@
 .activeContent{
     width: 100%;
     height: auto;
+    overflow: scroll;
 }
 
 label{
@@ -35,6 +42,7 @@ label{
     /* margin: 20%; */
     text-align: center;
 }
+
 input[type="radio"]{
     display: none;
     width: 0;
@@ -97,7 +105,7 @@ label:hover, input[type="radio"]:checked+label {
     height: auto;
 }
 
-.row{
+.rowTable{
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -123,7 +131,7 @@ label:hover, input[type="radio"]:checked+label {
     top: 20px;
     margin-left: auto;
     margin-right: auto;
-    padding: 55px 100px 55px 100px;
+    padding: 55px 80px 55px 100px;
     font-size: 45px;
     background-color: #d3d8f1;
 }
@@ -137,9 +145,26 @@ label:hover, input[type="radio"]:checked+label {
     margin-right: auto;
 }
 
-
-
-
-  .drawContentManagment{
+.drawContentManagment{
     display: flex;
+}
+
+.admin-msg-delete{
+    width:150px;
+    height:45px;
+    border-radius:45px;
+    cursor:pointer;
+    border:none;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-weight:bold;
+    box-shadow:0px 8px 15px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.admin-msg-delete:hover {
+    background:#8ca9f1;
+    color:#fff;
+    box-shadow:0px 10px 25px rgba(67, 135, 229, 0.445);
   }
+  

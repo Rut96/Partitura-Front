@@ -24,7 +24,6 @@ export default function SettingsModal(props) {
     props.toggleSettings()
   }
 
-
   const handleResetForm = () => {
     setImgUrl('');
     setPassword('');
@@ -34,7 +33,6 @@ export default function SettingsModal(props) {
       input.value = ''
     })
   }
-
 
   return(
     <div className="settings-menu">

@@ -1,0 +1,15 @@
+.chords-container-piano { 
+    grid-area: 3 / 3 / 3 / 6;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .piano_group{
+    height: fit-content;
+    width: fit-content;
+    display: block;
+  }
+  

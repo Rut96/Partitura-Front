@@ -15,6 +15,22 @@ const AdminPage = () => {
   const [contentManagment, setContentManagment] = useState(null);
   const [songs, setSongs] = useState(null);
 
+  useEffect( () => {
+    switch(activeTab){
+      case 'tab1':
+        getMsgs();
+        break;
+      case 'tab2':
+        getStatistic();
+        break;
+      case 'tab3':
+        getContentManagment();
+        break;
+      default:
+        break;
+    }
+  }, [activeTab, contentManagment]);
+
   const handleTabChange = (tabId) => {
     setActiveTab(tabId);
   };
@@ -43,18 +59,19 @@ const AdminPage = () => {
       setSongs(res.data);
     })
   }
+
   const TableComponent = ({ jsonData }) => {
     const contentFields = Object.entries(jsonData);
     return (
       <div className="wrapper">
 
-        <div className="row">
+        <div className="rowTable">
           <div>
             <h2 className="heading">Admin Dashboard Stat</h2>
           </div>
         </div>
 
-        <div className="row">
+        <div className="rowTable">
 
           {
             contentFields.map((item, index)=>{
@@ -82,25 +99,31 @@ const AdminPage = () => {
     );
   };
 
-
-
   const DrawStats = (stats) => {
     return(
       <TableComponent jsonData={stats} />
     )
   }
 
-  const DrawMsg = (msgs) => {
+  const DrawMsg =  (msgs) => {
+    const handleDelete = (id) => {
+      axios.post('/contact/delete', { id }).then((res)=>{
+        console.log(res);
+        setContentManagment(res.data);
+      })
+    } 
     return(
       <div className='msgTab' style={{display: 'block'}}>
         {
           msgs.map((msg, index) => {
+            console.log(msg);
             return(
               <div className='msgCard' key={index}>
                 <p> From email: { msg.contactEmail } </p>
                 <p> From Contact Name: { msg.contactName } </p>
-                <p>Message: { msg.contactMsg } </p>
-                <p>Date: { msg.dateAdded } </p>
+                <p> Message: { msg.contactMsg } </p>
+                <p> Date: { msg.dateAdded } </p>
+                <p><button className='admin-msg-delete' onClick={()=>handleDelete(msg._id)}>Delete</button></p>
               </div>
             )
           })
@@ -120,7 +143,6 @@ const AdminPage = () => {
     )
   }
 
-
   const drawContent = () => {
     switch(activeTab){
       case 'tab1':
@@ -133,25 +155,6 @@ const AdminPage = () => {
         break
     }
   }
-
- 
-
-
-  useEffect( () => {
-    switch(activeTab){
-      case 'tab1':
-        getMsgs();
-        break;
-      case 'tab2':
-        getStatistic();
-        break;
-      case 'tab3':
-        getContentManagment();
-        break;
-      default:
-        break;
-    }
-  }, [activeTab]);
 
   return (
     <div className="popup">
